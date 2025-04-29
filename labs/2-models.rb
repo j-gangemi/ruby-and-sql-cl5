@@ -26,7 +26,7 @@ new_salesperson["first_name"] = "Tom"
 new_salesperson["last_name"] = "Smith"
 new_salesperson["email"] = "tsmith@gmail.com"
 new_salesperson.save
- p new_salesperson
+p new_salesperson
 
  new_salesperson = Salesperson.new
 # puts new_company.inspect
@@ -42,11 +42,31 @@ puts "Salespeople: #{no_of_salespeople}"
 
 
 # 4. modify/update column data for a row in the salespeople table.
+tom = Salesperson.find_by({"first_name" => "Tom","last_name" => "Smith"})
+tom ["email"] = "tsmith@hotmail.com"
+p tom
+tom.save
+p tom["email"]
 
 # CHALLENGE:
 # 5. write code to display each salesperson's full name
-
+full_name = ["first_name", "last_name"]
+p "name is #{full_name}"
 # ---------------------------------
+
+no_of_salespeople = Salesperson.all.count
+puts "Salespeople: #{no_of_salespeople}"
+
+salespeople = Salesperson.all
+for person in salespeople
+first_name = person["first_name"]
+last_name = person["last_name"]
+puts "#{first_name} #{last_name}"
+end
+
+
+
+
 # Salespeople: 2
 # Ben Block
 # Brian Eng
